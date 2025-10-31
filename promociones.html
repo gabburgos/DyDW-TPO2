@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Promociones | Juguetería Encanto</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Estilos propios -->
+  <link rel="stylesheet" href="css/estilos.css">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="img/logo.jpeg" alt="Logo Encanto" width="50" height="50" class="me-2">
+        <span class="titulo-logo">Encanto</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
+          <li class="nav-item"><a class="nav-link" href="productos.html">Productos</a></li>
+          <li class="nav-item"><a class="nav-link active" href="promociones.html">Promociones</a></li>
+          <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main class="container my-5">
+    <div class="promociones-container">
+      <h2>Promociones vigentes</h2>
+      <p class="text-center mb-4">Seleccioná productos, agregá la cantidad y aplicá la promoción que quieras probar.</p>
+
+      <!-- AREA DE SELECCIÓN DE PRODUCTOS -->
+      <div class="row g-3 align-items-end">
+        <div class="col-md-6">
+          <label for="selectProducto" class="form-label">Producto</label>
+          <select id="selectProducto" class="form-select">
+            <!-- Se llenará desde JS -->
+          </select>
+        </div>
+
+        <div class="col-md-3">
+          <label for="qtyProducto" class="form-label">Cantidad</label>
+          <input type="number" id="qtyProducto" class="form-control" min="1" value="1">
+        </div>
+
+        <div class="col-md-3 d-grid">
+          <button id="btnAgregar" class="btn" type="button">Agregar al carrito</button>
+        </div>
+      </div>
+
+      <!-- CARRITO -->
+      <div class="mt-4">
+        <h5>Carrito</h5>
+        <div class="table-responsive">
+          <table class="table table-sm" id="tablaCarrito">
+            <thead>
+              <tr>
+                <th>Producto</th>
+                <th>Precio unitario</th>
+                <th>Cantidad</th>
+                <th>Subtotal</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Filas agregadas por JS -->
+            </tbody>
+          </table>
+        </div>
+        <p id="vacíoCarrito" class="text-muted">El carrito está vacío. Agregá productos para calcular promociones.</p>
+      </div>
+
+      <!-- SELECCIÓN DE PROMOCIÓN Y CALCULAR -->
+      <form id="formPromos" class="formulario-promos mt-3">
+        <label for="promo">Seleccioná una promoción:</label>
+        <select id="promo" required>
+          <option value="">-- Elegir promoción --</option>
+          <option value="50_segundo">Llevá 2 productos y obtené 50% en el segundo</option>
+          <option value="3x2">3x2 en productos seleccionados</option>
+          <option value="10_mas_30000">10% de descuento en compras superiores a $30.000</option>
+        </select>
+
+        <div class="d-grid mt-3">
+          <button type="submit" class="btn">Calcular promoción</button>
+        </div>
+      </form>
+
+      <!-- RESULTADOS -->
+      <div class="resultado-promos mt-4" id="resultado">
+        <p>Completá los datos y presioná <strong>Calcular promoción</strong> para ver el ahorro.</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-dark text-white text-center py-3">
+    <p class="mb-0">© 2025 Juguetería Encanto - Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- Bootstrap + JS propio -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/promociones.js"></script>
+</body>
+</html>
